@@ -77,7 +77,7 @@
             btnCalc.Name = "btnCalc";
             btnCalc.Size = new Size(75, 23);
             btnCalc.TabIndex = 6;
-            btnCalc.Text = "Calculate";
+            btnCalc.Text = "&Calculate";
             btnCalc.UseVisualStyleBackColor = true;
             // 
             // btnClear
@@ -86,7 +86,7 @@
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(75, 23);
             btnClear.TabIndex = 7;
-            btnClear.Text = "Clear";
+            btnClear.Text = "Clea&r";
             btnClear.UseVisualStyleBackColor = true;
             // 
             // btnQuit
@@ -95,7 +95,7 @@
             btnQuit.Name = "btnQuit";
             btnQuit.Size = new Size(75, 23);
             btnQuit.TabIndex = 8;
-            btnQuit.Text = "Quit";
+            btnQuit.Text = "&Quit";
             btnQuit.UseVisualStyleBackColor = true;
             // 
             // lstOut
