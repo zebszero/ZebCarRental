@@ -37,11 +37,6 @@
             btnQuit = new Button();
             lstOut = new ListBox();
             lblTitle = new Label();
-            rdoSedan = new RadioButton();
-            rdoSUV = new RadioButton();
-            rdoPickUp = new RadioButton();
-            grpEconomy = new GroupBox();
-            grpEconomy.SuspendLayout();
             SuspendLayout();
             // 
             // lblDays
@@ -84,6 +79,7 @@
             btnCalc.TabIndex = 5;
             btnCalc.Text = "&Calculate";
             btnCalc.UseVisualStyleBackColor = true;
+            btnCalc.Click += btnCalc_Click;
             // 
             // btnClear
             // 
@@ -125,56 +121,11 @@
             lblTitle.TabIndex = 10;
             lblTitle.Text = "Zeb's Car Rental";
             // 
-            // rdoSedan
-            // 
-            rdoSedan.AutoSize = true;
-            rdoSedan.Checked = true;
-            rdoSedan.Location = new Point(22, 26);
-            rdoSedan.Name = "rdoSedan";
-            rdoSedan.Size = new Size(62, 21);
-            rdoSedan.TabIndex = 15;
-            rdoSedan.TabStop = true;
-            rdoSedan.Text = "Sedan";
-            rdoSedan.UseVisualStyleBackColor = true;
-            // 
-            // rdoSUV
-            // 
-            rdoSUV.AutoSize = true;
-            rdoSUV.Location = new Point(22, 63);
-            rdoSUV.Name = "rdoSUV";
-            rdoSUV.Size = new Size(50, 21);
-            rdoSUV.TabIndex = 16;
-            rdoSUV.Text = "SUV";
-            rdoSUV.UseVisualStyleBackColor = true;
-            // 
-            // rdoPickUp
-            // 
-            rdoPickUp.AutoSize = true;
-            rdoPickUp.Location = new Point(23, 98);
-            rdoPickUp.Name = "rdoPickUp";
-            rdoPickUp.Size = new Size(108, 21);
-            rdoPickUp.TabIndex = 17;
-            rdoPickUp.Text = "Pick Up Truck";
-            rdoPickUp.UseVisualStyleBackColor = true;
-            // 
-            // grpEconomy
-            // 
-            grpEconomy.Controls.Add(rdoSUV);
-            grpEconomy.Controls.Add(rdoPickUp);
-            grpEconomy.Controls.Add(rdoSedan);
-            grpEconomy.Location = new Point(52, 83);
-            grpEconomy.Name = "grpEconomy";
-            grpEconomy.Size = new Size(200, 132);
-            grpEconomy.TabIndex = 14;
-            grpEconomy.TabStop = false;
-            grpEconomy.Text = "Select &Vehicle:";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 510);
-            Controls.Add(grpEconomy);
             Controls.Add(lblTitle);
             Controls.Add(lstOut);
             Controls.Add(btnQuit);
@@ -188,8 +139,6 @@
             ForeColor = SystemColors.ControlText;
             Name = "Form1";
             Text = "Zebs Whips";
-            grpEconomy.ResumeLayout(false);
-            grpEconomy.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -205,9 +154,9 @@
         private Button btnQuit;
         private ListBox lstOut;
         private Label lblTitle;
-        private RadioButton rdoSedan;
-        private RadioButton rdoSUV;
-        private RadioButton rdoPickUp;
-        private GroupBox grpEconomy;
+        //private RadioButton rdoSedan;
+        //private RadioButton rdoSUV;
+        //private RadioButton rdoPickUp;
+        //private GroupBox grpEconomy;
     }
 }

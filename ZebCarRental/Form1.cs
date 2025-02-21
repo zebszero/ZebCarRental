@@ -20,5 +20,21 @@ namespace ZebCarRental
             lstOut.Items.Clear();
         }
 
+        private void btnCalc_Click(object sender, EventArgs e)
+        {
+            string txtDays;
+            double txtRate;
+            double totalCost;
+            //read text boxes in variables
+            //parse convert strings to int/variable
+            txtDays = string.Parse(int);
+            txtRate = double.Parse(txtRate.Text);
+            totalCost = txtDays * txtRate;
+
+            lstOut.Items.Add(totalCost);
+
+            
+            
+        }
     }
 }
