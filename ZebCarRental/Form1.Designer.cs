@@ -42,7 +42,7 @@
             // lblDays
             // 
             lblDays.AutoSize = true;
-            lblDays.Location = new Point(340, 190);
+            lblDays.Location = new Point(340, 151);
             lblDays.Name = "lblDays";
             lblDays.Size = new Size(148, 17);
             lblDays.TabIndex = 3;
@@ -51,7 +51,7 @@
             // lblRate
             // 
             lblRate.AutoSize = true;
-            lblRate.Location = new Point(410, 150);
+            lblRate.Location = new Point(410, 198);
             lblRate.Name = "lblRate";
             lblRate.Size = new Size(78, 17);
             lblRate.TabIndex = 1;
@@ -59,17 +59,21 @@
             // 
             // txtRate
             // 
-            txtRate.Location = new Point(494, 147);
+            txtRate.Location = new Point(494, 190);
             txtRate.Name = "txtRate";
             txtRate.Size = new Size(100, 25);
-            txtRate.TabIndex = 2;
+            txtRate.TabIndex = 4;
+            txtRate.Enter += txtRate_Enter;
+            txtRate.Leave += txtRate_Leave;
             // 
             // txtDays
             // 
-            txtDays.Location = new Point(494, 190);
+            txtDays.Location = new Point(494, 143);
             txtDays.Name = "txtDays";
             txtDays.Size = new Size(100, 25);
-            txtDays.TabIndex = 4;
+            txtDays.TabIndex = 2;
+            txtDays.Enter += txtDays_Enter;
+            txtDays.Leave += txtDays_Leave;
             // 
             // btnCalc
             // 
