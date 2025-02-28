@@ -37,6 +37,8 @@
             btnQuit = new Button();
             lstOut = new ListBox();
             lblTitle = new Label();
+            lblName = new Label();
+            txtName = new TextBox();
             SuspendLayout();
             // 
             // lblDays
@@ -62,7 +64,7 @@
             txtRate.Location = new Point(494, 190);
             txtRate.Name = "txtRate";
             txtRate.Size = new Size(100, 25);
-            txtRate.TabIndex = 4;
+            txtRate.TabIndex = 6;
             txtRate.Enter += txtRate_Enter;
             txtRate.Leave += txtRate_Leave;
             // 
@@ -71,7 +73,7 @@
             txtDays.Location = new Point(494, 143);
             txtDays.Name = "txtDays";
             txtDays.Size = new Size(100, 25);
-            txtDays.TabIndex = 2;
+            txtDays.TabIndex = 4;
             txtDays.Enter += txtDays_Enter;
             txtDays.Leave += txtDays_Leave;
             // 
@@ -80,7 +82,7 @@
             btnCalc.Location = new Point(49, 440);
             btnCalc.Name = "btnCalc";
             btnCalc.Size = new Size(75, 26);
-            btnCalc.TabIndex = 5;
+            btnCalc.TabIndex = 7;
             btnCalc.Text = "&Calculate";
             btnCalc.UseVisualStyleBackColor = true;
             btnCalc.Click += btnCalc_Click;
@@ -90,7 +92,7 @@
             btnClear.Location = new Point(264, 440);
             btnClear.Name = "btnClear";
             btnClear.Size = new Size(75, 26);
-            btnClear.TabIndex = 6;
+            btnClear.TabIndex = 8;
             btnClear.Text = "Clea&r";
             btnClear.UseVisualStyleBackColor = true;
             btnClear.Click += btnClear_Click;
@@ -100,7 +102,7 @@
             btnQuit.Location = new Point(519, 440);
             btnQuit.Name = "btnQuit";
             btnQuit.Size = new Size(75, 26);
-            btnQuit.TabIndex = 7;
+            btnQuit.TabIndex = 9;
             btnQuit.Text = "&Quit";
             btnQuit.UseVisualStyleBackColor = true;
             btnQuit.Click += btnQuit_Click;
@@ -125,11 +127,31 @@
             lblTitle.TabIndex = 10;
             lblTitle.Text = "Zeb's Car Rental";
             // 
+            // lblName
+            // 
+            lblName.AutoSize = true;
+            lblName.Location = new Point(382, 109);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(106, 17);
+            lblName.TabIndex = 11;
+            lblName.Text = "Customer &Name:";
+            // 
+            // txtName
+            // 
+            txtName.Location = new Point(494, 101);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(100, 25);
+            txtName.TabIndex = 2;
+            txtName.Enter += txtName_Enter;
+            txtName.Leave += txtName_Leave;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 510);
+            Controls.Add(txtName);
+            Controls.Add(lblName);
             Controls.Add(lblTitle);
             Controls.Add(lstOut);
             Controls.Add(btnQuit);
@@ -158,6 +180,8 @@
         private Button btnQuit;
         private ListBox lstOut;
         private Label lblTitle;
+        private Label lblName;
+        private TextBox txtName;
         //private RadioButton rdoSedan;
         //private RadioButton rdoSUV;
         //private RadioButton rdoPickUp;

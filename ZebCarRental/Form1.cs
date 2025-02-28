@@ -14,23 +14,36 @@ namespace ZebCarRental
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            txtName.Clear();
             txtDays.Clear();
             txtRate.Clear();
-            txtRate.Focus();
+            txtName.Focus();
             lstOut.Items.Clear();
         }
 
         private void btnCalc_Click(object sender, EventArgs e)
         {
-            //declare/read variables from txtbx
-            double totalDays, rateDaily, totalCost;
-            //input
+    //  declare/read variables from txtbx
+            string custName;
+            double totalDays, rateDaily, costCar;
+    //      double rateTax, costTax, totalCost  ;
+    //  input
+            custName = txtName.Text;
             totalDays = int.Parse(txtDays.Text);
             rateDaily = double.Parse(txtRate.Text);
             //processing
-            totalCost = totalDays * rateDaily;
-            //output
-            lstOut.Items.Add("Total rental cost is " + totalCost);
+            costCar = totalDays * rateDaily;
+    //      costTax = costCar * rateTax
+    //      totalCost = costCar + costTax;
+    //  output
+            lstOut.Items.Add("Customer Name: " + custName);
+            lstOut.Items.Add("Days entered is: " + totalDays);
+    //      lstOut.Items.Add("Vehicle type selected:");
+            lstOut.Items.Add("Selected vehicle type rate: " + rateDaily.ToString("C"));
+            lstOut.Items.Add("Vehicle rental cost: " + costCar.ToString("C"));
+    //      lstOut.Items.Add("Tax rate: ");
+    //      lstOut.Items.Add("Tax charge: ");
+    //      lstOut.Items.Add("Cost with tax: ");
 
 
 
@@ -54,6 +67,16 @@ namespace ZebCarRental
         private void txtRate_Leave(object sender, EventArgs e)
         {
             txtRate.BackColor = SystemColors.Window;
+        }
+
+        private void txtName_Enter(object sender, EventArgs e)
+        {
+            txtName.BackColor = Color.Ivory;
+        }
+
+        private void txtName_Leave(object sender, EventArgs e)
+        {
+            txtName.BackColor= SystemColors.Window;
         }
     }
 }
