@@ -9,7 +9,16 @@ namespace ZebCarRental
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
-            this.Close();
+
+            DialogResult ButtonSelected;
+            ButtonSelected = MessageBox.Show(
+                "Do you really want to Quit?", "Exiting...",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (ButtonSelected == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -23,27 +32,52 @@ namespace ZebCarRental
 
         private void btnCalc_Click(object sender, EventArgs e)
         {
-    //  declare/read variables from txtbx
+            //  declare/read variables from txtbx
             string custName;
-            double totalDays, rateDaily, costCar;
-    //      double rateTax, costTax, totalCost  ;
-    //  input
+            int totalDays;
+            double rateDaily, costCar;
+            bool totalDaysValid, rateDailyValid;
+            //      double rateTax, costTax, totalCost  ;
+            //  input
             custName = txtName.Text;
-            totalDays = int.Parse(txtDays.Text);
-            rateDaily = double.Parse(txtRate.Text);
+            totalDaysValid = int.TryParse(txtDays.Text, out totalDays);
+            rateDailyValid = double.TryParse(txtRate.Text, out rateDaily);
             //processing
             costCar = totalDays * rateDaily;
-    //      costTax = costCar * rateTax
-    //      totalCost = costCar + costTax;
-    //  output
-            lstOut.Items.Add("Customer Name: " + custName);
-            lstOut.Items.Add("Days entered is: " + totalDays);
-    //      lstOut.Items.Add("Vehicle type selected:");
-            lstOut.Items.Add("Selected vehicle type rate: " + rateDaily.ToString("C"));
-            lstOut.Items.Add("Vehicle rental cost: " + costCar.ToString("C"));
-    //      lstOut.Items.Add("Tax rate: ");
-    //      lstOut.Items.Add("Tax charge: ");
-    //      lstOut.Items.Add("Cost with tax: ");
+            //      costTax = costCar * rateTax
+            //      totalCost = costCar + costTax;
+            //  output
+            if (totalDaysValid && rateDailyValid)
+            {
+                lstOut.Items.Add("Customer Name: " + custName);
+                lstOut.Items.Add("Days entered is: " + totalDays);
+                //      lstOut.Items.Add("Vehicle type selected:");
+                lstOut.Items.Add("Selected vehicle type rate: " + rateDaily.ToString("C"));
+                lstOut.Items.Add("Vehicle rental cost: " + costCar.ToString("C"));
+                //      lstOut.Items.Add("Tax rate: ");
+                //      lstOut.Items.Add("Tax charge: ");
+                //      lstOut.Items.Add("Cost with tax: ");
+            }
+            //lstOut.Items.Add("Customer Name: " + custName);
+            // lstOut.Items.Add("Days entered is: " + totalDays);
+            //      lstOut.Items.Add("Vehicle type selected:");
+            //  lstOut.Items.Add("Selected vehicle type rate: " + rateDaily.ToString("C"));
+            //  lstOut.Items.Add("Vehicle rental cost: " + costCar.ToString("C"));
+            //      lstOut.Items.Add("Tax rate: ");
+            //      lstOut.Items.Add("Tax charge: ");
+            //      lstOut.Items.Add("Cost with tax: ");
+            else
+            {
+                if (!totalDaysValid)
+                {
+                    lstOut.Items.Add("Total Days is incorrect.");
+                }
+                if (!rateDailyValid)
+                {
+                    lstOut.Items.Add("Daily Rate is incorrect.");
+                }
+            }
+
 
 
 
@@ -76,7 +110,14 @@ namespace ZebCarRental
 
         private void txtName_Leave(object sender, EventArgs e)
         {
-            txtName.BackColor= SystemColors.Window;
+            txtName.BackColor = SystemColors.Window;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+
+
         }
     }
 }

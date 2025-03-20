@@ -165,6 +165,7 @@
             ForeColor = SystemColors.ControlText;
             Name = "Form1";
             Text = "Zebs Whips";
+            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -182,9 +183,6 @@
         private Label lblTitle;
         private Label lblName;
         private TextBox txtName;
-        //private RadioButton rdoSedan;
-        //private RadioButton rdoSUV;
-        //private RadioButton rdoPickUp;
-        //private GroupBox grpEconomy;
+
     }
 }
