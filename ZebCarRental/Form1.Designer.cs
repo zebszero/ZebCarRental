@@ -39,6 +39,12 @@
             lblTitle = new Label();
             lblName = new Label();
             txtName = new TextBox();
+            grp = new GroupBox();
+            rdoCompact = new RadioButton();
+            rdoSUV = new RadioButton();
+            rdoSedan = new RadioButton();
+            OFD = new OpenFileDialog();
+            grp.SuspendLayout();
             SuspendLayout();
             // 
             // lblDays
@@ -145,11 +151,64 @@
             txtName.Enter += txtName_Enter;
             txtName.Leave += txtName_Leave;
             // 
+            // grp
+            // 
+            grp.Controls.Add(rdoCompact);
+            grp.Controls.Add(rdoSUV);
+            grp.Controls.Add(rdoSedan);
+            grp.Location = new Point(49, 101);
+            grp.Name = "grp";
+            grp.Size = new Size(200, 114);
+            grp.TabIndex = 12;
+            grp.TabStop = false;
+            grp.Text = "Vehicle Size";
+            // 
+            // rdoCompact
+            // 
+            rdoCompact.AutoSize = true;
+            rdoCompact.Location = new Point(11, 87);
+            rdoCompact.Name = "rdoCompact";
+            rdoCompact.Size = new Size(77, 21);
+            rdoCompact.TabIndex = 2;
+            rdoCompact.TabStop = true;
+            rdoCompact.Text = "Compact";
+            rdoCompact.UseVisualStyleBackColor = true;
+            rdoCompact.CheckedChanged += rdoCompact_CheckedChanged;
+            // 
+            // rdoSUV
+            // 
+            rdoSUV.AutoSize = true;
+            rdoSUV.Location = new Point(11, 60);
+            rdoSUV.Name = "rdoSUV";
+            rdoSUV.Size = new Size(50, 21);
+            rdoSUV.TabIndex = 1;
+            rdoSUV.TabStop = true;
+            rdoSUV.Text = "SUV";
+            rdoSUV.UseVisualStyleBackColor = true;
+            rdoSUV.CheckedChanged += rdoSUV_CheckedChanged;
+            // 
+            // rdoSedan
+            // 
+            rdoSedan.AutoSize = true;
+            rdoSedan.Location = new Point(11, 33);
+            rdoSedan.Name = "rdoSedan";
+            rdoSedan.Size = new Size(62, 21);
+            rdoSedan.TabIndex = 0;
+            rdoSedan.TabStop = true;
+            rdoSedan.Text = "Sedan";
+            rdoSedan.UseVisualStyleBackColor = true;
+            rdoSedan.CheckedChanged += rdoSedan_CheckedChanged;
+            // 
+            // OFD
+            // 
+            OFD.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 510);
+            Controls.Add(grp);
             Controls.Add(txtName);
             Controls.Add(lblName);
             Controls.Add(lblTitle);
@@ -166,6 +225,8 @@
             Name = "Form1";
             Text = "Zebs Whips";
             Load += Form1_Load;
+            grp.ResumeLayout(false);
+            grp.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -183,6 +244,10 @@
         private Label lblTitle;
         private Label lblName;
         private TextBox txtName;
-
+        private GroupBox grp;
+        private RadioButton rdoCompact;
+        private RadioButton rdoSUV;
+        private RadioButton rdoSedan;
+        private OpenFileDialog OFD;
     }
 }

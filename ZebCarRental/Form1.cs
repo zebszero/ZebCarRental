@@ -1,7 +1,19 @@
+using Microsoft.VisualBasic.Logging;
+
 namespace ZebCarRental
 {
     public partial class Form1 : Form
     {
+        private string carType;
+        const string SEDAN = "Sedan";
+        const string SUV = "SUV";
+        const string COMP = "Compact";
+        private string logFile = "Rental Log File.txt";
+        private string cfgFile = "Configuration.txt";
+        private double sedanRate = 50;
+        private double suvRate = 65;
+        private double compRate = 40;
+
         public Form1()
         {
             InitializeComponent();
@@ -28,6 +40,7 @@ namespace ZebCarRental
             txtRate.Clear();
             txtName.Focus();
             lstOut.Items.Clear();
+            rdoSedan.Checked = true;
         }
 
         private void btnCalc_Click(object sender, EventArgs e)
@@ -37,18 +50,37 @@ namespace ZebCarRental
             int totalDays;
             double rateDaily, costCar;
             bool totalDaysValid, rateDailyValid;
+            double carTypeRate = 0;
+            StreamWriter swLog;
             //      double rateTax, costTax, totalCost  ;
             //  input
             custName = txtName.Text;
             totalDaysValid = int.TryParse(txtDays.Text, out totalDays);
             rateDailyValid = double.TryParse(txtRate.Text, out rateDaily);
             //processing
-            costCar = totalDays * rateDaily;
-            //      costTax = costCar * rateTax
-            //      totalCost = costCar + costTax;
-            //  output
             if (totalDaysValid && rateDailyValid)
             {
+                switch (carType)
+                {
+                    case SEDAN:
+                        carTypeRate = sedanRate;
+                        break;
+                    case SUV:
+                        carTypeRate = suvRate;
+                        break;
+                    case COMP:
+                        carTypeRate = compRate;
+                        break;
+                    default:
+                        lstOut.Items.Add("This shouldn't happen.");
+                        break;
+
+
+                }
+                costCar = totalDays * rateDaily;
+                //      costTax = costCar * rateTax;
+                //      totalCost = costCar + costTax;
+                //  output
                 lstOut.Items.Add("Customer Name: " + custName);
                 lstOut.Items.Add("Days entered is: " + totalDays);
                 //      lstOut.Items.Add("Vehicle type selected:");
@@ -57,15 +89,16 @@ namespace ZebCarRental
                 //      lstOut.Items.Add("Tax rate: ");
                 //      lstOut.Items.Add("Tax charge: ");
                 //      lstOut.Items.Add("Cost with tax: ");
+                //opens file so i can append to the end
+                swLog = File.AppendText(logFile);
+                swLog.WriteLine("******Beginning of Transaction at " + DateTime.Now.ToString("G") + "*******+");
+                swLog.WriteLine("Customer Name: " + custName);
+                swLog.WriteLine("Days entered is: " + totalDays);
+                swLog.WriteLine("Selected vehicle type rate: " + rateDaily.ToString("C"));
+                swLog.WriteLine("Vehicle rental cost: " + costCar.ToString("C"));
+
             }
-            //lstOut.Items.Add("Customer Name: " + custName);
-            // lstOut.Items.Add("Days entered is: " + totalDays);
-            //      lstOut.Items.Add("Vehicle type selected:");
-            //  lstOut.Items.Add("Selected vehicle type rate: " + rateDaily.ToString("C"));
-            //  lstOut.Items.Add("Vehicle rental cost: " + costCar.ToString("C"));
-            //      lstOut.Items.Add("Tax rate: ");
-            //      lstOut.Items.Add("Tax charge: ");
-            //      lstOut.Items.Add("Cost with tax: ");
+
             else
             {
                 if (!totalDaysValid)
@@ -115,9 +148,50 @@ namespace ZebCarRental
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            StreamReader srCFG;
+            rdoSedan.Checked = true;
+            try
+            {
+                srCFG = File.OpenText(cfgFile);
+                sedanRate = double.Parse(srCFG.ReadLine());
+                suvRate = double.Parse(srCFG.ReadLine());
+                compRate = double.Parse(srCFG.ReadLine());
+                srCFG.Close();
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show(
+                    "Configuration File not found. Please enter a new configuration file.",
+                    "Configuration file not found");
+                OFD.Title = "Enter configuration file";
+                OFD.FileName = cfgFile;
+                OFD.ShowDialog();
+                cfgFile = OFD.FileName;
+            }
+        }
 
+        private void rdoSedan_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoSedan.Checked)
+            {
+                carType = SEDAN;
+            }
+        }
 
+        private void rdoSUV_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoSUV.Checked)
+            {
+                carType = SUV;
+            }
+        }
 
+        private void rdoCompact_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rdoCompact.Checked)
+            {
+                carType = COMP;
+            }
         }
     }
 }
