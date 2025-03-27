@@ -4,15 +4,6 @@ namespace ZebCarRental
 {
     public partial class Form1 : Form
     {
-        private string carType;
-        const string SEDAN = "Sedan";
-        const string SUV = "SUV";
-        const string COMP = "Compact";
-        private string logFile = "Rental Log File.txt";
-        private string cfgFile = "Configuration.txt";
-        private double sedanRate = 50;
-        private double suvRate = 65;
-        private double compRate = 40;
 
         public Form1()
         {
