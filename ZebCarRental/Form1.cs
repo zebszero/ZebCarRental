@@ -10,6 +10,15 @@ namespace ZebCarRental
             InitializeComponent();
         }
 
+        private string carType;
+        const string SEDAN = "Sedan";
+        const string SUV = "SUV";
+        const string COMP = "Compact";
+        private string logFile = "Rental Log File.txt";
+        private string cfgFile = "Configuration.txt";
+        private double sedanRate = 50;
+        private double suvRate = 65;
+        private double compRate = 40;
         private void btnQuit_Click(object sender, EventArgs e)
         {
 
@@ -88,6 +97,8 @@ namespace ZebCarRental
                 swLog.WriteLine("Selected vehicle type rate: " + rateDaily.ToString("C"));
                 swLog.WriteLine("Vehicle rental cost: " + costCar.ToString("C"));
 
+                swLog.Close();
+
             }
 
             else
@@ -141,24 +152,42 @@ namespace ZebCarRental
         {
             StreamReader srCFG;
             rdoSedan.Checked = true;
-            try
-            {
-                srCFG = File.OpenText(cfgFile);
-                sedanRate = double.Parse(srCFG.ReadLine());
-                suvRate = double.Parse(srCFG.ReadLine());
-                compRate = double.Parse(srCFG.ReadLine());
-                srCFG.Close();
-            }
-            catch (FileNotFoundException)
-            {
-                MessageBox.Show(
-                    "Configuration File not found. Please enter a new configuration file.",
-                    "Configuration file not found");
-                OFD.Title = "Enter configuration file";
-                OFD.FileName = cfgFile;
-                OFD.ShowDialog();
-                cfgFile = OFD.FileName;
-            }
+            bool fileWasNotFound = true;
+            do
+            { 
+                try
+                {
+                    srCFG = File.OpenText(cfgFile);
+                    fileWasNotFound = false;
+                    try 
+                    {
+                        sedanRate = double.Parse(srCFG.ReadLine());
+                        suvRate = double.Parse(srCFG.ReadLine());
+                        compRate = double.Parse(srCFG.ReadLine());
+                        srCFG.Close();
+                    }
+                    catch (FormatException ex)
+                    {
+                        lstOut.ForeColor = Color.Red;
+                        lstOut.Items.Add("File data  corrupted. Values were set to defaults");
+                        lstOut.Items.Add(ex.Message);
+                        sedanRate = 40;
+                        suvRate = 60;
+                        compRate = 50;
+                        srCFG.Close();
+                    }
+                }
+                catch (FileNotFoundException ex)
+                {
+                    MessageBox.Show(ex.Message + " Please enter a new file name", "File Not Found");
+                    // OFD.InitialDirectory = 
+                    OFD.Filter = "Text Files |*.txt | All Files | *.*";
+                    OFD.Title = "Open Configuration File";
+                    OFD.ShowDialog();
+                    cfgFile = OFD.FileName;
+                }
+            }while (fileWasNotFound);
+
         }
 
         private void rdoSedan_CheckedChanged(object sender, EventArgs e)
