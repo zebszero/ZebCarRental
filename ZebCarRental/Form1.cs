@@ -1,4 +1,4 @@
-using Microsoft.VisualBasic.Logging;
+//using Microsoft.VisualBasic.Logging;
 
 namespace ZebCarRental
 {
