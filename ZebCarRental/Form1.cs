@@ -181,7 +181,7 @@ namespace ZebCarRental
                 {
                     MessageBox.Show(ex.Message + " Please enter a new file name", "File Not Found");
                     // OFD.InitialDirectory = 
-                    OFD.Filter = "Text Files |*.txt | All Files | *.*";
+                    OFD.Filter = "txt files (*.txt)|*.txt|All Files (*.*)|*.*";
                     OFD.Title = "Open Configuration File";
                     OFD.ShowDialog();
                     cfgFile = OFD.FileName;
