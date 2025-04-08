@@ -44,7 +44,11 @@
             rdoSUV = new RadioButton();
             rdoSedan = new RadioButton();
             OFD = new OpenFileDialog();
+            menuStrip1 = new MenuStrip();
+            settingsToolStripMenuItem = new ToolStripMenuItem();
+            quitToolStripMenuItem = new ToolStripMenuItem();
             grp.SuspendLayout();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // lblDays
@@ -203,6 +207,29 @@
             // 
             OFD.FileName = "openFileDialog1";
             // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { settingsToolStripMenuItem, quitToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.TabIndex = 13;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            settingsToolStripMenuItem.Size = new Size(61, 20);
+            settingsToolStripMenuItem.Text = "Settings";
+            settingsToolStripMenuItem.Click += settingsToolStripMenuItem_Click;
+            // 
+            // quitToolStripMenuItem
+            // 
+            quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+            quitToolStripMenuItem.Size = new Size(42, 20);
+            quitToolStripMenuItem.Text = "Quit";
+            quitToolStripMenuItem.Click += btnQuit_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -220,13 +247,17 @@
             Controls.Add(txtRate);
             Controls.Add(lblRate);
             Controls.Add(lblDays);
+            Controls.Add(menuStrip1);
             Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             ForeColor = SystemColors.ControlText;
+            MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Zebs Whips";
             Load += Form1_Load;
             grp.ResumeLayout(false);
             grp.PerformLayout();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -249,5 +280,8 @@
         private RadioButton rdoSUV;
         private RadioButton rdoSedan;
         private OpenFileDialog OFD;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem settingsToolStripMenuItem;
+        private ToolStripMenuItem quitToolStripMenuItem;
     }
 }

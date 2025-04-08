@@ -16,9 +16,40 @@ namespace ZebCarRental
         const string COMP = "Compact";
         private string logFile = "Rental Log File.txt";
         private string cfgFile = "Configuration.txt";
-        private double sedanRate = 50;
-        private double suvRate = 65;
-        private double compRate = 40;
+        private double sedanRate;
+        private double suvRate;
+        private double compRate;
+        private double MIN_Rate = 0;
+        // ica 9, declare form to object
+        private Form2 sf;
+
+        public double SedanRate
+        {
+            get { return sedanRate; }
+            set
+            {
+                if (value > MIN_Rate) 
+                {
+                    sedanRate = value;
+                }
+            }
+
+        }
+        public double SuvRate
+        {
+            get { return suvRate; }
+            set
+            {
+                if (value > MIN_Rate) 
+                {
+                    suvRate = value;
+                }
+            }
+        }
+        public double CompRate
+        {
+            get { return compRate; }
+        }
         private void btnQuit_Click(object sender, EventArgs e)
         {
 
@@ -105,11 +136,11 @@ namespace ZebCarRental
             {
                 if (!totalDaysValid)
                 {
-                    lstOut.Items.Add("Total Days is incorrect.");
+                    lstOut.Items.Add("Total Days should be whole number.");
                 }
                 if (!rateDailyValid)
                 {
-                    lstOut.Items.Add("Daily Rate is incorrect.");
+                    lstOut.Items.Add("Daily Rate must be typed as '$1.23.");
                 }
             }
 
@@ -150,16 +181,18 @@ namespace ZebCarRental
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //create sf, which is a form2 object
+            sf = new Form2();
             StreamReader srCFG;
             rdoSedan.Checked = true;
             bool fileWasNotFound = true;
             do
-            { 
+            {
                 try
                 {
                     srCFG = File.OpenText(cfgFile);
                     fileWasNotFound = false;
-                    try 
+                    try
                     {
                         sedanRate = double.Parse(srCFG.ReadLine());
                         suvRate = double.Parse(srCFG.ReadLine());
@@ -186,7 +219,7 @@ namespace ZebCarRental
                     OFD.ShowDialog();
                     cfgFile = OFD.FileName;
                 }
-            }while (fileWasNotFound);
+            } while (fileWasNotFound);
 
         }
 
@@ -208,10 +241,15 @@ namespace ZebCarRental
 
         private void rdoCompact_CheckedChanged(object sender, EventArgs e)
         {
-            if(rdoCompact.Checked)
+            if (rdoCompact.Checked)
             {
                 carType = COMP;
             }
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sf.ShowDialog();
         }
     }
 }
