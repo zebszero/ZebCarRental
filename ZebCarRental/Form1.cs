@@ -14,6 +14,8 @@ namespace ZebCarRental
         const string SEDAN = "Sedan";
         const string SUV = "SUV";
         const string COMP = "Compact";
+        const double taxMin = 0.0;
+        const double taxMax = 10.0;
         private string logFile = "Rental Log File.txt";
         internal string cfgFile = "Configuration.txt";
         private double sedanRate;
@@ -29,7 +31,7 @@ namespace ZebCarRental
             get { return sedanRate; }
             set
             {
-                if (value => MIN_Rate) 
+                if (value > MIN_Rate) 
                 {
                     sedanRate = value;
                 }
@@ -41,7 +43,7 @@ namespace ZebCarRental
             get { return suvRate; }
             set
             {
-                if (value => MIN_Rate) 
+                if (value > MIN_Rate) 
                 {
                     suvRate = value;
                 }
@@ -52,7 +54,7 @@ namespace ZebCarRental
             get { return compRate; }
             set
             {
-                if (value => MIN_Rate)
+                if (value > MIN_Rate)
                 {
                     compRate = value;
                 }
@@ -258,9 +260,9 @@ namespace ZebCarRental
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            sf.txtSedan.Text = SedanRate.ToString();
-            sf.txtSUV.Text = SuvRate.ToString();
-            sf.txtComp.Text = CompRate.ToString();
+            sf.txtSedanRate.Text = SedanRate.ToString();
+            sf.txtSUVRate.Text = SuvRate.ToString();
+            sf.txtCompRate.Text = CompRate.ToString();
             sf.ShowDialog();
         }
     }

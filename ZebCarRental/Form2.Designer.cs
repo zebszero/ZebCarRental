@@ -28,72 +28,75 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtSedanRate = new Label();
-            txtSuvRate = new Label();
-            txtCompRate = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            lblSedanRate = new Label();
+            lblSuvRate = new Label();
+            lblCompRate = new Label();
+            txtSedanRate = new TextBox();
+            txtSuvRate = new TextBox();
+            txtCompRate = new TextBox();
             btnSave = new Button();
             txtTitle = new Label();
+            lblTax = new Label();
+            txtTaxRate = new TextBox();
             SuspendLayout();
+            // 
+            // lblSedanRate
+            // 
+            lblSedanRate.AutoSize = true;
+            lblSedanRate.Location = new Point(23, 91);
+            lblSedanRate.Name = "lblSedanRate";
+            lblSedanRate.Size = new Size(68, 15);
+            lblSedanRate.TabIndex = 0;
+            lblSedanRate.Text = "Sedan Rate:";
+            // 
+            // lblSuvRate
+            // 
+            lblSuvRate.AutoSize = true;
+            lblSuvRate.Location = new Point(23, 126);
+            lblSuvRate.Name = "lblSuvRate";
+            lblSuvRate.Size = new Size(57, 15);
+            lblSuvRate.TabIndex = 1;
+            lblSuvRate.Text = "SUV Rate:";
+            // 
+            // lblCompRate
+            // 
+            lblCompRate.AutoSize = true;
+            lblCompRate.Location = new Point(23, 161);
+            lblCompRate.Name = "lblCompRate";
+            lblCompRate.Size = new Size(85, 15);
+            lblCompRate.TabIndex = 2;
+            lblCompRate.Text = "Compact Rate:";
             // 
             // txtSedanRate
             // 
-            txtSedanRate.AutoSize = true;
-            txtSedanRate.Location = new Point(23, 91);
+            txtSedanRate.Location = new Point(136, 88);
             txtSedanRate.Name = "txtSedanRate";
-            txtSedanRate.Size = new Size(68, 15);
-            txtSedanRate.TabIndex = 0;
-            txtSedanRate.Text = "Sedan Rate:";
+            txtSedanRate.Size = new Size(100, 23);
+            txtSedanRate.TabIndex = 3;
             // 
             // txtSuvRate
             // 
-            txtSuvRate.AutoSize = true;
-            txtSuvRate.Location = new Point(23, 152);
+            txtSuvRate.Location = new Point(136, 123);
             txtSuvRate.Name = "txtSuvRate";
-            txtSuvRate.Size = new Size(57, 15);
-            txtSuvRate.TabIndex = 1;
-            txtSuvRate.Text = "SUV Rate:";
+            txtSuvRate.Size = new Size(100, 23);
+            txtSuvRate.TabIndex = 4;
             // 
             // txtCompRate
             // 
-            txtCompRate.AutoSize = true;
-            txtCompRate.Location = new Point(23, 210);
+            txtCompRate.Location = new Point(136, 158);
             txtCompRate.Name = "txtCompRate";
-            txtCompRate.Size = new Size(85, 15);
-            txtCompRate.TabIndex = 2;
-            txtCompRate.Text = "Compact Rate:";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(136, 88);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 3;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(136, 149);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 4;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(136, 207);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 5;
+            txtCompRate.Size = new Size(100, 23);
+            txtCompRate.TabIndex = 5;
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(51, 268);
+            btnSave.Location = new Point(92, 268);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(75, 23);
+            btnSave.Size = new Size(144, 23);
             btnSave.TabIndex = 6;
-            btnSave.Text = "Con&firm";
+            btnSave.Text = "Con&firm && Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // txtTitle
             // 
@@ -105,19 +108,37 @@
             txtTitle.TabIndex = 7;
             txtTitle.Text = "Daily Rate";
             // 
+            // lblTax
+            // 
+            lblTax.AutoSize = true;
+            lblTax.Location = new Point(23, 201);
+            lblTax.Name = "lblTax";
+            lblTax.Size = new Size(50, 15);
+            lblTax.TabIndex = 8;
+            lblTax.Text = "Tax Rate";
+            // 
+            // txtTaxRate
+            // 
+            txtTaxRate.Location = new Point(136, 198);
+            txtTaxRate.Name = "txtTaxRate";
+            txtTaxRate.Size = new Size(100, 23);
+            txtTaxRate.TabIndex = 9;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(384, 322);
+            Controls.Add(txtTaxRate);
+            Controls.Add(lblTax);
             Controls.Add(txtTitle);
             Controls.Add(btnSave);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
             Controls.Add(txtCompRate);
             Controls.Add(txtSuvRate);
             Controls.Add(txtSedanRate);
+            Controls.Add(lblCompRate);
+            Controls.Add(lblSuvRate);
+            Controls.Add(lblSedanRate);
             Name = "Form2";
             Text = "Settings Form";
             ResumeLayout(false);
@@ -126,13 +147,15 @@
 
         #endregion
 
-        private Label txtSedanRate;
-        private Label txtSuvRate;
-        private Label txtCompRate;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private Label lblSedanRate;
+        private Label lblSuvRate;
+        private Label lblCompRate;
         private Button btnSave;
         private Label txtTitle;
+        private Label lblTax;
+        internal TextBox txtSedanRate;
+        internal TextBox txtSuvRate;
+        internal TextBox txtCompRate;
+        internal TextBox txtTaxRate;
     }
 }
