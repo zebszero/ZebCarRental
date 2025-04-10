@@ -15,40 +15,48 @@ namespace ZebCarRental
         const string SUV = "SUV";
         const string COMP = "Compact";
         private string logFile = "Rental Log File.txt";
-        private string cfgFile = "Configuration.txt";
+        internal string cfgFile = "Configuration.txt";
         private double sedanRate;
         private double suvRate;
         private double compRate;
+        private double taxRate;
         private double MIN_Rate = 0;
         // ica 9, declare form to object
         private Form2 sf;
 
-        public double SedanRate
+        internal double SedanRate
         {
             get { return sedanRate; }
             set
             {
-                if (value > MIN_Rate) 
+                if (value => MIN_Rate) 
                 {
                     sedanRate = value;
                 }
             }
 
         }
-        public double SuvRate
+        internal double SuvRate
         {
             get { return suvRate; }
             set
             {
-                if (value > MIN_Rate) 
+                if (value => MIN_Rate) 
                 {
                     suvRate = value;
                 }
             }
         }
-        public double CompRate
+        internal double CompRate
         {
             get { return compRate; }
+            set
+            {
+                if (value => MIN_Rate)
+                {
+                    compRate = value;
+                }
+            }
         }
         private void btnQuit_Click(object sender, EventArgs e)
         {
@@ -181,9 +189,10 @@ namespace ZebCarRental
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //create sf, which is a form2 object
-            sf = new Form2();
             StreamReader srCFG;
+            //create sf, which is a form2 object
+            sf = new Form2(this);
+
             rdoSedan.Checked = true;
             bool fileWasNotFound = true;
             do
@@ -214,7 +223,7 @@ namespace ZebCarRental
                 {
                     MessageBox.Show(ex.Message + " Please enter a new file name", "File Not Found");
                     // OFD.InitialDirectory = 
-                    OFD.Filter = "txt files (*.txt)|*.txt|All Files (*.*)|*.*";
+                    OFD.Filter = "Text Files|*.txt| All Files |*.*";
                     OFD.Title = "Open Configuration File";
                     OFD.ShowDialog();
                     cfgFile = OFD.FileName;
@@ -249,6 +258,9 @@ namespace ZebCarRental
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            sf.txtSedan.Text = SedanRate.ToString();
+            sf.txtSUV.Text = SuvRate.ToString();
+            sf.txtComp.Text = CompRate.ToString();
             sf.ShowDialog();
         }
     }
