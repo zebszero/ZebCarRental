@@ -12,23 +12,29 @@ namespace ZebCarRental
 {
     public partial class Form2 : Form
     {
-        private Form1 ff;
-        public Form2(Form1 f)
+        private Form1 tForm;
+        public Form2(Form1 f1)
         {
             InitializeComponent();
-            ff = f;
+            tForm = f1;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            ff.SedanRate = double.Parse(lblSedanRate.Text);
-            ff.SuvRate = double.Parse(lblSuvRate.Text);
-            ff.CompRate = double.Parse(lblCompRate.Text);
-            StreamWriter sw = File.CreateText(ff.swCFG);
-            sw.WriteLine(ff.SedanRate.ToString());
-            sw.WriteLine(ff.CompRate.ToString());
-            sw.WriteLine(ff.SuvRate.ToString());
+            StreamWriter sw;
+            // set form1 Properties
+            tForm.SedanRate = double.Parse(txtSedanRate.Text);
+            tForm.SuvRate = double.Parse(txtSUVRate.Text);
+            tForm.CompRate = double.Parse(txtCompRate.Text);
+            //opening the config file to save the values
+            sw = File.CreateText(tForm.cfgFile);
+            // save the properties in the file - MAKE SURE THEY ARE IN THE CORRECT ORDER
+            sw.WriteLine(tForm.SedanRate.ToString());
+            sw.WriteLine(tForm.SuvRate.ToString());
+            sw.WriteLine(tForm.CompRate.ToString());
+
             sw.Close();
+            this.Hide();
         }
     }
 }

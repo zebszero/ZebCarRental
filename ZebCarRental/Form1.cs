@@ -17,12 +17,12 @@ namespace ZebCarRental
         const double taxMin = 0.0;
         const double taxMax = 10.0;
         private string logFile = "Rental Log File.txt";
-        public string cfgFile = "Configuration.txt";
+        internal string cfgFile = "Configuration.txt";
         private double sedanRate;
         private double suvRate;
         private double compRate;
         private double taxRate;
-        private double MIN_Rate = 0;
+        private double MIN_Rate = -1;
         // ica 9, declare form to object
         private Form2 sf;
 
@@ -79,8 +79,8 @@ namespace ZebCarRental
             txtName.Clear();
             txtDays.Clear();
             txtRate.Clear();
-            txtName.Focus();
             lstOut.Items.Clear();
+            txtName.Focus();
             rdoSedan.Checked = true;
         }
 
@@ -93,6 +93,25 @@ namespace ZebCarRental
             bool totalDaysValid, rateDailyValid;
             double carTypeRate = 0;
             StreamWriter swLog;
+            custName = txtName.Text.Trim();
+
+            // pretend widget name is a name of a person
+            // this code is not required for your project
+            // but you may want to use it if you have a customer name
+
+            string fName, lName;
+            int posSpace;
+
+            posSpace = custName.IndexOf(" ");
+            if (posSpace != -1)
+            {
+                fName = custName.Substring(0, posSpace);
+                lName = custName.Substring(posSpace).Trim();
+                lstOut.Items.Add("First Name is " + fName);
+                lstOut.Items.Add("Last Name is " + lName);
+            }
+
+
             //      double rateTax, costTax, totalCost  ;
             //  input
             custName = txtName.Text;

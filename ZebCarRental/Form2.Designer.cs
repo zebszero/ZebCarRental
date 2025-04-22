@@ -32,7 +32,7 @@
             lblSuvRate = new Label();
             lblCompRate = new Label();
             txtSedanRate = new TextBox();
-            txtSuvRate = new TextBox();
+            txtSUVRate = new TextBox();
             txtCompRate = new TextBox();
             btnSave = new Button();
             txtTitle = new Label();
@@ -74,12 +74,12 @@
             txtSedanRate.Size = new Size(100, 23);
             txtSedanRate.TabIndex = 3;
             // 
-            // txtSuvRate
+            // txtSUVRate
             // 
-            txtSuvRate.Location = new Point(136, 123);
-            txtSuvRate.Name = "txtSuvRate";
-            txtSuvRate.Size = new Size(100, 23);
-            txtSuvRate.TabIndex = 4;
+            txtSUVRate.Location = new Point(136, 123);
+            txtSUVRate.Name = "txtSUVRate";
+            txtSUVRate.Size = new Size(100, 23);
+            txtSUVRate.TabIndex = 4;
             // 
             // txtCompRate
             // 
@@ -134,7 +134,7 @@
             Controls.Add(txtTitle);
             Controls.Add(btnSave);
             Controls.Add(txtCompRate);
-            Controls.Add(txtSuvRate);
+            Controls.Add(txtSUVRate);
             Controls.Add(txtSedanRate);
             Controls.Add(lblCompRate);
             Controls.Add(lblSuvRate);
@@ -154,7 +154,7 @@
         private Label txtTitle;
         private Label lblTax;
         internal TextBox txtSedanRate;
-        internal TextBox txtSuvRate;
+        internal TextBox txtSUVRate;
         internal TextBox txtCompRate;
         internal TextBox txtTaxRate;
     }

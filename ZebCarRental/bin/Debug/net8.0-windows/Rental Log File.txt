@@ -1,0 +1,10 @@
+******Beginning of Transaction at 4/22/2025 7:03:54 PM*******+
+Customer Name: JohnDoe
+Days entered is: 8
+Selected vehicle type rate: $10.00
+Vehicle rental cost: $80.00
+******Beginning of Transaction at 4/22/2025 7:03:59 PM*******+
+Customer Name: JohnDoe
+Days entered is: 8
+Selected vehicle type rate: $10.00
+Vehicle rental cost: $80.00
