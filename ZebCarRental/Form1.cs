@@ -205,9 +205,9 @@ namespace ZebCarRental
                     fileWasNotFound = false;
                     try
                     {
-                        sedanRate = double.Parse(srCFG.ReadLine());
-                        suvRate = double.Parse(srCFG.ReadLine());
-                        compRate = double.Parse(srCFG.ReadLine());
+                        SedanRate = double.Parse(srCFG.ReadLine());
+                        SuvRate = double.Parse(srCFG.ReadLine());
+                        CompRate = double.Parse(srCFG.ReadLine());
                         srCFG.Close();
                     }
                     catch (FormatException ex)
