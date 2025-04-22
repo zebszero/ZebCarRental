@@ -17,7 +17,7 @@ namespace ZebCarRental
         const double taxMin = 0.0;
         const double taxMax = 10.0;
         private string logFile = "Rental Log File.txt";
-        internal string cfgFile = "Configuration.txt";
+        public string cfgFile = "Configuration.txt";
         private double sedanRate;
         private double suvRate;
         private double compRate;
