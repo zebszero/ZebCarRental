@@ -8,3 +8,8 @@ Customer Name: JohnDoe
 Days entered is: 8
 Selected vehicle type rate: $10.00
 Vehicle rental cost: $80.00
+******Beginning of Transaction at 5/1/2025 6:47:05 PM*******+
+Customer Name: zeb
+Days entered is: 5
+Selected vehicle type rate: $10.99
+Vehicle rental cost: $54.95

@@ -1,5 +1,3 @@
-//using Microsoft.VisualBasic.Logging;
-
 namespace ZebCarRental
 {
     public partial class Form1 : Form
@@ -23,6 +21,9 @@ namespace ZebCarRental
         private double compRate;
         private double taxRate;
         private double MIN_Rate = -1;
+        const int LISTBOX = 1;
+        const int LOGFILE = 2;
+        const int BOTH = 3;
         // ica 9, declare form to object
         private Form2 sf;
 
@@ -31,7 +32,7 @@ namespace ZebCarRental
             get { return sedanRate; }
             set
             {
-                if (value > MIN_Rate) 
+                if (value > MIN_Rate)
                 {
                     sedanRate = value;
                 }
@@ -43,7 +44,7 @@ namespace ZebCarRental
             get { return suvRate; }
             set
             {
-                if (value > MIN_Rate) 
+                if (value > MIN_Rate)
                 {
                     suvRate = value;
                 }
@@ -92,7 +93,6 @@ namespace ZebCarRental
             double rateDaily, costCar;
             bool totalDaysValid, rateDailyValid;
             double carTypeRate = 0;
-            StreamWriter swLog;
             custName = txtName.Text.Trim();
 
             // pretend widget name is a name of a person
@@ -140,27 +140,20 @@ namespace ZebCarRental
                 costCar = totalDays * rateDaily;
                 //      costTax = costCar * rateTax;
                 //      totalCost = costCar + costTax;
+
                 //  output
-                lstOut.Items.Add("Customer Name: " + custName);
-                lstOut.Items.Add("Days entered is: " + totalDays);
+                outputTrans("*************** Beginning of Transaction " + DateTime.Now.ToString("G") + "  *****************", LOGFILE);
+                outputTrans("Customer Name: " + custName,BOTH);
+                outputTrans("Days entered is: " + totalDays, BOTH);
                 //      lstOut.Items.Add("Vehicle type selected:");
-                lstOut.Items.Add("Selected vehicle type rate: " + rateDaily.ToString("C"));
-                lstOut.Items.Add("Vehicle rental cost: " + costCar.ToString("C"));
+                outputTrans("Selected vehicle type rate: " + rateDaily.ToString("C"), BOTH);
+                outputTrans("Vehicle rental cost: " + costCar.ToString("C"), BOTH);
                 //      lstOut.Items.Add("Tax rate: ");
                 //      lstOut.Items.Add("Tax charge: ");
                 //      lstOut.Items.Add("Cost with tax: ");
-                //opens file so i can append to the end
-                swLog = File.AppendText(logFile);
-                swLog.WriteLine("******Beginning of Transaction at " + DateTime.Now.ToString("G") + "*******+");
-                swLog.WriteLine("Customer Name: " + custName);
-                swLog.WriteLine("Days entered is: " + totalDays);
-                swLog.WriteLine("Selected vehicle type rate: " + rateDaily.ToString("C"));
-                swLog.WriteLine("Vehicle rental cost: " + costCar.ToString("C"));
-
-                swLog.Close();
 
             }
-
+            
             else
             {
                 if (!totalDaysValid)
@@ -176,8 +169,24 @@ namespace ZebCarRental
 
 
 
+
         }
 
+        private void outputTrans (string msg, int outputType)
+
+        {
+            StreamWriter swLog;
+            if (outputType == LISTBOX || outputType == BOTH)
+            {
+                lstOut.Items.Add(msg);
+            }
+            if (outputType == LOGFILE || outputType == BOTH)
+            {
+                swLog = File.AppendText(logFile);
+                swLog.WriteLine(msg);
+                swLog.Close();
+            }
+        }
         private void txtDays_Enter(object sender, EventArgs e)
         {
             txtDays.BackColor = Color.Ivory;
@@ -283,6 +292,49 @@ namespace ZebCarRental
             sf.txtSUVRate.Text = SuvRate.ToString();
             sf.txtCompRate.Text = CompRate.ToString();
             sf.ShowDialog();
+        }
+
+        private void showLogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            const int MAX_LINES = 2000;
+            string[] logLines = new string[MAX_LINES];
+            StreamReader sr = File.OpenText(logFile);
+            int numLines = 0;
+            while (!sr.EndOfStream)
+            {
+                logLines[numLines] = sr.ReadLine();
+                numLines++;
+            }
+            int begin = -2;
+            int end = 4;
+            for (int i = 0; i < numLines; i++)
+            {
+                if (logLines[i] == "The vehicle type is " + carType)
+                {
+                    for (int j = i + begin; j <= i + end; j++)
+                    {
+                        lstOut.Items.Add(logLines[j]);
+                    }
+                }
+
+            }
+
+            double[] grades = new double[MAX_LINES];
+
+
+
+
+            sr.Close();
+        }
+
+        private void numberArrayTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int[] numbers = new int[50];
+            for (int i = 0; i < 25; i++)
+            {
+                numbers[i] = i;
+            }
+            lstOut.Items.Add(numbers.Average());
         }
     }
 }

@@ -45,6 +45,8 @@
             rdoSedan = new RadioButton();
             OFD = new OpenFileDialog();
             menuStrip1 = new MenuStrip();
+            numberArrayTestToolStripMenuItem = new ToolStripMenuItem();
+            showLogToolStripMenuItem = new ToolStripMenuItem();
             settingsToolStripMenuItem = new ToolStripMenuItem();
             quitToolStripMenuItem = new ToolStripMenuItem();
             grp.SuspendLayout();
@@ -209,12 +211,26 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { settingsToolStripMenuItem, quitToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { numberArrayTestToolStripMenuItem, showLogToolStripMenuItem, settingsToolStripMenuItem, quitToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
             menuStrip1.TabIndex = 13;
             menuStrip1.Text = "menuStrip1";
+            // 
+            // numberArrayTestToolStripMenuItem
+            // 
+            numberArrayTestToolStripMenuItem.Name = "numberArrayTestToolStripMenuItem";
+            numberArrayTestToolStripMenuItem.Size = new Size(142, 20);
+            numberArrayTestToolStripMenuItem.Text = "Number Array Test Tool";
+            numberArrayTestToolStripMenuItem.Click += numberArrayTestToolStripMenuItem_Click;
+            // 
+            // showLogToolStripMenuItem
+            // 
+            showLogToolStripMenuItem.Name = "showLogToolStripMenuItem";
+            showLogToolStripMenuItem.Size = new Size(71, 20);
+            showLogToolStripMenuItem.Text = "Show Log";
+            showLogToolStripMenuItem.Click += showLogToolStripMenuItem_Click;
             // 
             // settingsToolStripMenuItem
             // 
@@ -283,5 +299,7 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem settingsToolStripMenuItem;
         private ToolStripMenuItem quitToolStripMenuItem;
+        private ToolStripMenuItem numberArrayTestToolStripMenuItem;
+        private ToolStripMenuItem showLogToolStripMenuItem;
     }
 }
