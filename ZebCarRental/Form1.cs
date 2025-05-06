@@ -90,7 +90,7 @@ namespace ZebCarRental
             //  declare/read variables from txtbx
             string custName;
             int totalDays;
-            double rateDaily, costCar;
+            double rateDaily, subTotal,totalCost, taxCost;
             bool totalDaysValid, rateDailyValid;
             double carTypeRate = 0;
             custName = txtName.Text.Trim();
@@ -137,20 +137,20 @@ namespace ZebCarRental
 
 
                 }
-                costCar = totalDays * rateDaily;
-                //      costTax = costCar * rateTax;
-                //      totalCost = costCar + costTax;
+                subTotal = totalDays * rateDaily;
+                taxCost = subTotal * taxRate;
+                totalCost = subTotal + taxRate;
 
                 //  output
                 outputTrans("*************** Beginning of Transaction " + DateTime.Now.ToString("G") + "  *****************", LOGFILE);
                 outputTrans("Customer Name: " + custName,BOTH);
                 outputTrans("Days entered is: " + totalDays, BOTH);
-                //      lstOut.Items.Add("Vehicle type selected:");
-                outputTrans("Selected vehicle type rate: " + rateDaily.ToString("C"), BOTH);
-                outputTrans("Vehicle rental cost: " + costCar.ToString("C"), BOTH);
-                //      lstOut.Items.Add("Tax rate: ");
-                //      lstOut.Items.Add("Tax charge: ");
-                //      lstOut.Items.Add("Cost with tax: ");
+                outputTrans("Vehicle type selected:" + carType, BOTH);
+                outputTrans(carType + "Rate: " + rateDaily.ToString("C"), BOTH);
+                outputTrans("Sub-total: " + subTotal.ToString("C"), BOTH);
+                outputTrans("Sales Tax Rate: " + taxRate, BOTH);
+                outputTrans("Tax Charge: " + taxCost, BOTH);
+                outputTrans("Total Charge: " + totalCost, BOTH);
 
             }
             
