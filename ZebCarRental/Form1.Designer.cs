@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             lblDays = new Label();
-            lblRate = new Label();
-            txtRate = new TextBox();
             txtDays = new TextBox();
             btnCalc = new Button();
             btnClear = new Button();
@@ -49,6 +47,8 @@
             showLogToolStripMenuItem = new ToolStripMenuItem();
             settingsToolStripMenuItem = new ToolStripMenuItem();
             quitToolStripMenuItem = new ToolStripMenuItem();
+            txtRate = new TextBox();
+            lblRate = new Label();
             grp.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -61,24 +61,6 @@
             lblDays.Size = new Size(148, 17);
             lblDays.TabIndex = 3;
             lblDays.Text = "Enter total da&ys rented:";
-            // 
-            // lblRate
-            // 
-            lblRate.AutoSize = true;
-            lblRate.Location = new Point(410, 198);
-            lblRate.Name = "lblRate";
-            lblRate.Size = new Size(78, 17);
-            lblRate.TabIndex = 1;
-            lblRate.Text = "Daily Ra&te: ";
-            // 
-            // txtRate
-            // 
-            txtRate.Location = new Point(494, 190);
-            txtRate.Name = "txtRate";
-            txtRate.Size = new Size(100, 25);
-            txtRate.TabIndex = 6;
-            txtRate.Enter += txtRate_Enter;
-            txtRate.Leave += txtRate_Leave;
             // 
             // txtDays
             // 
@@ -221,7 +203,7 @@
             // numberArrayTestToolStripMenuItem
             // 
             numberArrayTestToolStripMenuItem.Name = "numberArrayTestToolStripMenuItem";
-            numberArrayTestToolStripMenuItem.Size = new Size(142, 20);
+            numberArrayTestToolStripMenuItem.Size = new Size(144, 20);
             numberArrayTestToolStripMenuItem.Text = "Number Array Test Tool";
             numberArrayTestToolStripMenuItem.Click += numberArrayTestToolStripMenuItem_Click;
             // 
@@ -245,6 +227,24 @@
             quitToolStripMenuItem.Size = new Size(42, 20);
             quitToolStripMenuItem.Text = "Quit";
             quitToolStripMenuItem.Click += btnQuit_Click;
+            // 
+            // txtRate
+            // 
+            txtRate.Location = new Point(494, 190);
+            txtRate.Name = "txtRate";
+            txtRate.Size = new Size(100, 25);
+            txtRate.TabIndex = 6;
+            txtRate.Enter += txtRate_Enter;
+            txtRate.Leave += txtRate_Leave;
+            // 
+            // lblRate
+            // 
+            lblRate.AutoSize = true;
+            lblRate.Location = new Point(410, 198);
+            lblRate.Name = "lblRate";
+            lblRate.Size = new Size(78, 17);
+            lblRate.TabIndex = 1;
+            lblRate.Text = "Daily Ra&te: ";
             // 
             // Form1
             // 
@@ -281,8 +281,6 @@
         #endregion
 
         private Label lblDays;
-        private Label lblRate;
-        private TextBox txtRate;
         private TextBox txtDays;
         private Button btnCalc;
         private Button btnClear;
@@ -301,5 +299,7 @@
         private ToolStripMenuItem quitToolStripMenuItem;
         private ToolStripMenuItem numberArrayTestToolStripMenuItem;
         private ToolStripMenuItem showLogToolStripMenuItem;
+        private TextBox txtRate;
+        private Label lblRate;
     }
 }

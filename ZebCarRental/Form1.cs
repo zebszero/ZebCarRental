@@ -19,7 +19,7 @@ namespace ZebCarRental
         private double suvRate;
         private double compRate;
         private double taxRate;
-        private double MIN_Rate = 0;
+        private double MIN_Rate = -1;
         const int LISTBOX = 1;
         const int LOGFILE = 2;
         const int BOTH = 3;
@@ -100,9 +100,8 @@ namespace ZebCarRental
             //  declare/read variables from txtbx
             string custName;
             int totalDays;
-            double rateDaily, subTotal,totalCost, taxCost;
-            bool totalDaysValid, rateDailyValid;
-            double carTypeRate = 0;
+            double carTypeRate, subTotal,totalCost, taxCost;
+            bool totalDaysValid, carTypeRateValid;
             custName = txtName.Text.Trim();
 
             // pretend widget name is a name of a person
@@ -125,9 +124,9 @@ namespace ZebCarRental
             //  input
             custName = txtName.Text;
             totalDaysValid = int.TryParse(txtDays.Text, out totalDays);
-            rateDailyValid = double.TryParse(txtRate.Text, out rateDaily);
+            carTypeRateValid = double.TryParse(txtRate.Text, out carTypeRate);
             //processing
-            if (totalDaysValid && rateDailyValid)
+            if (totalDaysValid && carTypeRateValid)
             {
                 switch (carType)
                 {
@@ -146,16 +145,16 @@ namespace ZebCarRental
 
 
                 }
-                subTotal = totalDays * rateDaily;
+                subTotal = totalDays * carTypeRate;
                 taxCost = subTotal * taxRate;
-                totalCost = subTotal + taxRate;
+                totalCost = subTotal + taxCost;
 
                 //  output
                 outputTrans("*************** Beginning of Transaction " + DateTime.Now.ToString("G") + "  *****************", LOGFILE);
                 outputTrans("Customer Name: " + custName,BOTH);
                 outputTrans("Days entered is: " + totalDays, BOTH);
                 outputTrans("Vehicle type selected:" + carType, BOTH);
-                outputTrans(carType + "Rate: " + rateDaily.ToString("C"), BOTH);
+                outputTrans(carType + "Rate: " + carTypeRate.ToString("C"), BOTH);
                 outputTrans("Sub-total: " + subTotal.ToString("C"), BOTH);
                 outputTrans("Sales Tax Rate: " + taxRate, BOTH);
                 outputTrans("Tax Charge: " + taxCost, BOTH);
@@ -169,7 +168,7 @@ namespace ZebCarRental
                 {
                     lstOut.Items.Add("Total Days should be whole number.");
                 }
-                if (!rateDailyValid)
+                if (!carTypeRateValid)
                 {
                     lstOut.Items.Add("Daily Rate must be typed as '$1.23.");
                 }
