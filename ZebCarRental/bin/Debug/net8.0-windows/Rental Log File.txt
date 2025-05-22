@@ -166,3 +166,57 @@ Sub-total: $400.00
 Sales Tax Rate: 0.08
 Tax Charge: 32
 Total Charge: 432
+*************** Beginning of Transaction 5/22/2025 4:58:46 PM  *****************
+Customer Name: Zeb
+Days entered is: 5
+Vehicle type selected:Sedan
+SedanRate: $50.00
+Sub-total: $250.00
+Sales Tax Rate: 0.08
+Tax Charge: 20
+Total Charge: 270
+*************** Beginning of Transaction 5/22/2025 5:04:09 PM  *****************
+Customer Name: zeb
+Days entered is: 3
+Vehicle type selected: Sedan
+SedanRate: $50.00
+Sub-total: $150.00
+Sales Tax Rate: 8.00%
+Tax Charge: $12.00
+Total Charge: $162.00
+*************** Beginning of Transaction 5/22/2025 5:04:21 PM  *****************
+Customer Name: zeb
+Days entered is: 3
+Vehicle type selected: SUV
+SUVRate: $65.00
+Sub-total: $195.00
+Sales Tax Rate: 8.00%
+Tax Charge: $15.60
+Total Charge: $210.60
+*************** Beginning of Transaction 5/22/2025 5:05:36 PM  *****************
+Customer Name: zev
+Days entered is: 3
+Vehicle type selected: Sedan
+Sedan Rate: $50.00
+Sub-total: $150.00
+Sales Tax Rate: 8.00%
+Tax Charge: $12.00
+Total Charge: $162.00
+*************** Beginning of Transaction 5/22/2025 5:05:47 PM  *****************
+Customer Name: zev
+Days entered is: 3
+Vehicle type selected: SUV
+SUV Rate: $65.00
+Sub-total: $195.00
+Sales Tax Rate: 8.00%
+Tax Charge: $15.60
+Total Charge: $210.60
+*************** Beginning of Transaction 5/22/2025 5:05:49 PM  *****************
+Customer Name: zev
+Days entered is: 3
+Vehicle type selected: Compact
+Compact Rate: $40.00
+Sub-total: $120.00
+Sales Tax Rate: 8.00%
+Tax Charge: $9.60
+Total Charge: $129.60

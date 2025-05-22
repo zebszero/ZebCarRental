@@ -152,12 +152,12 @@ namespace ZebCarRental
                 outputTrans("*************** Beginning of Transaction " + DateTime.Now.ToString("G") + "  *****************", LOGFILE);
                 outputTrans("Customer Name: " + custName,BOTH);
                 outputTrans("Days entered is: " + totalDays, BOTH);
-                outputTrans("Vehicle type selected:" + carType, BOTH);
-                outputTrans(carType + "Rate: " + carTypeRate.ToString("C"), BOTH);
+                outputTrans("Vehicle type selected: " + carType, BOTH);
+                outputTrans(carType + " Rate: " + carTypeRate.ToString("C"), BOTH);
                 outputTrans("Sub-total: " + subTotal.ToString("C"), BOTH);
-                outputTrans("Sales Tax Rate: " + taxRate, BOTH);
-                outputTrans("Tax Charge: " + taxCost, BOTH);
-                outputTrans("Total Charge: " + totalCost, BOTH);
+                outputTrans("Sales Tax Rate: " + taxRate.ToString("P"), BOTH);
+                outputTrans("Tax Charge: " + taxCost.ToString("C"), BOTH);
+                outputTrans("Total Charge: " + totalCost.ToString("C"), BOTH);
 
             }
             
