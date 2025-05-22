@@ -19,6 +19,7 @@ namespace ZebCarRental
         private double suvRate;
         private double compRate;
         private double taxRate;
+        private double carTypeRate;
         private double MIN_Rate = -1;
         const int LISTBOX = 1;
         const int LOGFILE = 2;
@@ -89,7 +90,6 @@ namespace ZebCarRental
         {
             txtName.Clear();
             txtDays.Clear();
-            txtRate.Clear();
             lstOut.Items.Clear();
             txtName.Focus();
             rdoSedan.Checked = true;
@@ -100,7 +100,7 @@ namespace ZebCarRental
             //  declare/read variables from txtbx
             string custName;
             int totalDays;
-            double carTypeRate, subTotal,totalCost, taxCost;
+            double subTotal,totalCost, taxCost;
             bool totalDaysValid, carTypeRateValid;
             custName = txtName.Text.Trim();
 
@@ -124,9 +124,8 @@ namespace ZebCarRental
             //  input
             custName = txtName.Text;
             totalDaysValid = int.TryParse(txtDays.Text, out totalDays);
-            carTypeRateValid = double.TryParse(txtRate.Text, out carTypeRate);
             //processing
-            if (totalDaysValid && carTypeRateValid)
+            if (totalDaysValid)
             {
                 switch (carType)
                 {
@@ -168,10 +167,7 @@ namespace ZebCarRental
                 {
                     lstOut.Items.Add("Total Days should be whole number.");
                 }
-                if (!carTypeRateValid)
-                {
-                    lstOut.Items.Add("Daily Rate must be typed as '$1.23.");
-                }
+
             }
 
 
@@ -205,15 +201,6 @@ namespace ZebCarRental
             txtDays.BackColor = SystemColors.Window;
         }
 
-        private void txtRate_Enter(object sender, EventArgs e)
-        {
-            txtRate.BackColor = Color.Ivory;
-        }
-
-        private void txtRate_Leave(object sender, EventArgs e)
-        {
-            txtRate.BackColor = SystemColors.Window;
-        }
 
         private void txtName_Enter(object sender, EventArgs e)
         {

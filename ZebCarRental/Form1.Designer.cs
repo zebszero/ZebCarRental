@@ -47,8 +47,6 @@
             showLogToolStripMenuItem = new ToolStripMenuItem();
             settingsToolStripMenuItem = new ToolStripMenuItem();
             quitToolStripMenuItem = new ToolStripMenuItem();
-            txtRate = new TextBox();
-            lblRate = new Label();
             grp.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -228,24 +226,6 @@
             quitToolStripMenuItem.Text = "Quit";
             quitToolStripMenuItem.Click += btnQuit_Click;
             // 
-            // txtRate
-            // 
-            txtRate.Location = new Point(494, 190);
-            txtRate.Name = "txtRate";
-            txtRate.Size = new Size(100, 25);
-            txtRate.TabIndex = 6;
-            txtRate.Enter += txtRate_Enter;
-            txtRate.Leave += txtRate_Leave;
-            // 
-            // lblRate
-            // 
-            lblRate.AutoSize = true;
-            lblRate.Location = new Point(410, 198);
-            lblRate.Name = "lblRate";
-            lblRate.Size = new Size(78, 17);
-            lblRate.TabIndex = 1;
-            lblRate.Text = "Daily Ra&te: ";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -260,8 +240,6 @@
             Controls.Add(btnClear);
             Controls.Add(btnCalc);
             Controls.Add(txtDays);
-            Controls.Add(txtRate);
-            Controls.Add(lblRate);
             Controls.Add(lblDays);
             Controls.Add(menuStrip1);
             Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
@@ -299,7 +277,5 @@
         private ToolStripMenuItem quitToolStripMenuItem;
         private ToolStripMenuItem numberArrayTestToolStripMenuItem;
         private ToolStripMenuItem showLogToolStripMenuItem;
-        private TextBox txtRate;
-        private Label lblRate;
     }
 }

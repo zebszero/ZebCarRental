@@ -139,3 +139,30 @@ Sub-total: $20.00
 Sales Tax Rate: 0.08
 Tax Charge: 1.6
 Total Charge: 21.6
+*************** Beginning of Transaction 5/22/2025 4:08:58 PM  *****************
+Customer Name: Z
+Days entered is: 10
+Vehicle type selected:Sedan
+SedanRate: $50.00
+Sub-total: $500.00
+Sales Tax Rate: 0.08
+Tax Charge: 40
+Total Charge: 540
+*************** Beginning of Transaction 5/22/2025 4:09:03 PM  *****************
+Customer Name: Z
+Days entered is: 10
+Vehicle type selected:SUV
+SUVRate: $65.00
+Sub-total: $650.00
+Sales Tax Rate: 0.08
+Tax Charge: 52
+Total Charge: 702
+*************** Beginning of Transaction 5/22/2025 4:09:10 PM  *****************
+Customer Name: Z
+Days entered is: 10
+Vehicle type selected:Compact
+CompactRate: $40.00
+Sub-total: $400.00
+Sales Tax Rate: 0.08
+Tax Charge: 32
+Total Charge: 432
