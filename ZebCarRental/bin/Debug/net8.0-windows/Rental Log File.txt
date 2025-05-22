@@ -13,3 +13,30 @@ Customer Name: zeb
 Days entered is: 5
 Selected vehicle type rate: $10.99
 Vehicle rental cost: $54.95
+*************** Beginning of Transaction 5/21/2025 8:07:50 PM  *****************
+Customer Name: Z
+Days entered is: 3
+Vehicle type selected:Sedan
+SedanRate: $4.50
+Sub-total: $13.50
+Sales Tax Rate: 0
+Tax Charge: 0
+Total Charge: 13.5
+*************** Beginning of Transaction 5/21/2025 8:08:06 PM  *****************
+Customer Name: Z
+Days entered is: 3
+Vehicle type selected:Sedan
+SedanRate: $4.50
+Sub-total: $13.50
+Sales Tax Rate: 0
+Tax Charge: 0
+Total Charge: 13.5
+*************** Beginning of Transaction 5/21/2025 8:08:12 PM  *****************
+Customer Name: Z
+Days entered is: 3
+Vehicle type selected:Sedan
+SedanRate: $4.50
+Sub-total: $13.50
+Sales Tax Rate: 0
+Tax Charge: 0
+Total Charge: 13.5

@@ -12,8 +12,7 @@ namespace ZebCarRental
         const string SEDAN = "Sedan";
         const string SUV = "SUV";
         const string COMP = "Compact";
-        const double taxMin = 0.0;
-        const double taxMax = 10.0;
+        const double TAX_MAX = 10.0;
         private string logFile = "Rental Log File.txt";
         internal string cfgFile = "Configuration.txt";
         private double sedanRate;
@@ -27,6 +26,17 @@ namespace ZebCarRental
         // ica 9, declare form to object
         private Form2 sf;
 
+        internal double TaxRate
+        {
+            get { return taxRate; }
+            set
+            {
+                if (value >= MIN_Rate || value <= TAX_MAX)
+                {
+                    taxRate = value;
+                }
+            }
+        }
         internal double SedanRate
         {
             get { return sedanRate; }
@@ -112,7 +122,6 @@ namespace ZebCarRental
             }
 
 
-            //      double rateTax, costTax, totalCost  ;
             //  input
             custName = txtName.Text;
             totalDaysValid = int.TryParse(txtDays.Text, out totalDays);
