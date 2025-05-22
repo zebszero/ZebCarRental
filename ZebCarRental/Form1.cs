@@ -19,7 +19,7 @@ namespace ZebCarRental
         private double suvRate;
         private double compRate;
         private double taxRate;
-        private double MIN_Rate = -1;
+        private double MIN_Rate = 0;
         const int LISTBOX = 1;
         const int LOGFILE = 2;
         const int BOTH = 3;
@@ -31,7 +31,7 @@ namespace ZebCarRental
             get { return taxRate; }
             set
             {
-                if (value >= MIN_Rate || value <= TAX_MAX)
+                if (value >= MIN_Rate && value <= TAX_MAX)
                 {
                     taxRate = value;
                 }
@@ -245,6 +245,7 @@ namespace ZebCarRental
                         SedanRate = double.Parse(srCFG.ReadLine());
                         SuvRate = double.Parse(srCFG.ReadLine());
                         CompRate = double.Parse(srCFG.ReadLine());
+                        TaxRate = double.Parse(srCFG.ReadLine());
                         srCFG.Close();
                     }
                     catch (FormatException ex)
@@ -255,6 +256,7 @@ namespace ZebCarRental
                         sedanRate = 40;
                         suvRate = 60;
                         compRate = 50;
+                        taxRate = .08;
                         srCFG.Close();
                     }
                 }

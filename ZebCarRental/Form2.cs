@@ -26,12 +26,14 @@ namespace ZebCarRental
             tForm.SedanRate = double.Parse(txtSedanRate.Text);
             tForm.SuvRate = double.Parse(txtSUVRate.Text);
             tForm.CompRate = double.Parse(txtCompRate.Text);
+            tForm.TaxRate = double.Parse(txtTaxRate.Text);
             //opening the config file to save the values
             sw = File.CreateText(tForm.cfgFile);
             // save the properties in the file - MAKE SURE THEY ARE IN THE CORRECT ORDER
             sw.WriteLine(tForm.SedanRate.ToString());
             sw.WriteLine(tForm.SuvRate.ToString());
             sw.WriteLine(tForm.CompRate.ToString());
+            sw.WriteLine(tForm.TaxRate.ToString());
 
             sw.Close();
             this.Hide();
